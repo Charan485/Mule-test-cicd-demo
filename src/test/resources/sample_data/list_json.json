@@ -1,0 +1,23 @@
+[
+    {
+        "EMPLID": 152,
+        "LASTNAME": "RACHAKONDA",
+        "FIRSTNAME": "SHIVA",
+        "EMAIL": "CHARN@GMAIL.COM",
+        "PHONE":1242224554
+    },
+    {
+        "EMPLID": 153,
+        "LASTNAME": "RACHAKONDA",
+        "FIRSTNAME": "SHIVACHARAN",
+        "EMAIL": "SHIVACHARN@GMAIL.COM",
+        "PHONE":458555667
+    },
+    {
+        "EMPLID": 154,
+        "LASTNAME": "VADLAKONDA",
+        "FIRSTNAME": "ASHOK",
+        "EMAIL": "ASHOK@GMAIL.COM",
+        "PHONE":98754225444
+    }
+]

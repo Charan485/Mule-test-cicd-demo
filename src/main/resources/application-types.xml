@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="inputCSV" format="csv">
+      <types:shape format="weave" example="examples/Emp_personal_data.csv"><![CDATA[%dw 2.0
+
+type inputCSV = Array<{|  EMPLID: String,   FIRSTNAME: String,   LASTNAME: String,   EMAIL: String,   PHONE: String|}> {"isQuotedString": "false",
+"header": "true",
+"headerLineNumber": "0"}
+
+]]></types:shape>
+      <types:properties>
+        <types:property name="headerLineNumber" value="0"/>
+        <types:property name="header" value="true"/>
+        <types:property name="isQuotedString" value="false"/>
+      </types:properties>
+    </types:type>
+    <types:type name="outputJSON" format="json">
+      <types:shape format="weave" example="examples/Emp_personal_data.json"><![CDATA[%dw 2.0
+
+type outputJSON = Array<{|  EMPLID: Number {"typeId": "int"},   LASTNAME: String,   FIRSTNAME: String,   EMAIL: String,   PHONE: Number {"typeId": "int"}|}> {"example": "[{\\\"EMPLID\\\":152,\\\"LASTNAME\\\":\\\"RACHAKONDA\\\",\\\"FIRSTNAME\\\":\\\"SHIVA\\\",\\\"EMAIL\\\":\\\"CHARN@GMAIL.COM\\\",\\\"PHONE\\\":1242224554},{\\\"EMPLID\\\":153,\\\"LASTNAME\\\":\\\"RACHAKONDA\\\",\\\"FIRSTNAME\\\":\\\"SHIVACHARAN\\\",\\\"EMAIL\\\":\\\"SHIVACHARN@GMAIL.COM\\\",\\\"PHONE\\\":458555667},{\\\"EMPLID\\\":154,\\\"LASTNAME\\\":\\\"VADLAKONDA\\\",\\\"FIRSTNAME\\\":\\\"ASHOK\\\",\\\"EMAIL\\\":\\\"ASHOK@GMAIL.COM\\\",\\\"PHONE\\\":98754225444}]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#fd750409-70db-4515-ab6b-a07d0ea5597a">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="outputJSON"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
